@@ -10,21 +10,23 @@ public class GetUserTest extends UserBaseTest {
 
     @Test
     public void checkGetUser() {
+
         Response response;
 
-        response = userService.getUserRequest("user1");
+        response = userService.getUserRequest("fandorin");
 
         response
                 .then()
                 .spec(responseSpec)
                 .log().all()
-                .body("firstName", equalTo("k"))
-                .body("lastName", comparesEqualTo("b"));
+                .body("firstName", equalTo("Эраст"))
+                .body("lastName", comparesEqualTo("Фандорин"));
 
     }
 
     @Test
     public void checkGetNonExistentUser() {
+
         Response response;
 
         response = userService.getUserRequest("wtf");

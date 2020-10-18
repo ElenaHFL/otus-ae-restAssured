@@ -25,14 +25,21 @@ public class UserService {
                 .with()
                 .body(user)
                 .when()
-                .log().all()
+                //.log().all()
                 .post(CREATE_USER);
     }
 
     public Response getUserRequest(String username) {
         return given(requestSpec)
                 .when()
-                .log().all()
+                //.log().all()
                 .get(CREATE_USER + "/" + username);
+    }
+
+    public Response deleteUserRequest(String username) {
+        return given(requestSpec)
+                .when()
+                //.log().all()
+                .delete(CREATE_USER + "/" + username);
     }
 }

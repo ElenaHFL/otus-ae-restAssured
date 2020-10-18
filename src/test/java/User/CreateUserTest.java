@@ -62,26 +62,19 @@ public class CreateUserTest extends UserBaseTest {
     @Test
     public void checkCreateUserWithSameInfo() {
         User user;
-        Long id = 101L;
 
         user = User.builder()
                 .firstName("Эраст")
-                .id(id)
+                .id(101L)
                 .lastName("Фандорин")
                 .password("Password")
                 .username("fandorin")
                 .userStatus(10L)
                 .build();
 
-        Response response1 = userService.addUserRequest(user);
-        Response response2 = userService.addUserRequest(user);
+        Response response = userService.addUserRequest(user);
 
-        response1
-                .then()
-                .spec(responseSpec)
-                .log().all();
-
-        response2
+        response
                 .then()
                 .spec(responseSpec)
                 .log().all();
